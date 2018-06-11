@@ -1,0 +1,102 @@
+<html>
+  <head>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+          .content {
+            display:flex;
+            width:100%;
+          }
+
+          .content div {
+            flex: 1;
+            color: white;
+            background-color: black;
+            border: 1px solid red;
+            text-align: center;
+          }
+          i {
+            float: right;
+            font-size: 10px;
+            color:white;
+          }
+          .dropdown {
+            display: none;
+            position:absolute;
+            background-color:green;
+            width:100%;
+            margin: 0px;
+            padding:0px;
+          }
+
+          .div1:hover .dropdown{
+            display:block;
+          }
+
+          .content .div1{
+            position:relative;
+          }
+
+          ul{
+            list-style-type:none;
+            margin-left:0px;
+            padding:0px;
+            margin-top:0px;
+          }
+          ul li{
+            border-bottom:1px solid blue;
+          }
+          .div1 dropdown .sub {
+            position: relative;
+            display: inline-block;
+          }
+          .div1 .dropdown .sub .list {
+            display: none;
+          }
+          .div1 .dropdown .sub #i2:hover .list {
+            display: block;
+            position: absolute;
+            left: 400px;
+          }
+      </style>
+</head>
+<body>
+<div class="content">
+    <div class="div1">Name-1<i class="fa fa-cloud"></i>
+      <div class="dropdown">
+        <ul>
+          <li>item1</li>
+          <li>item2</li>
+          <li>item3</li>
+        </ul>
+      </div>
+    </div>
+    <div class="div1">Name-2<i class="fa fa-cloud"></i>
+      <div class="dropdown">
+        <ul class="sub">
+          <li>item1</li>
+          <li id="i2">item2
+              <div class="list">
+                <ul>
+                <li>sub1</li>
+                <li>sub2</li>
+                <li>sub3</li>
+                </ul>
+              </div>
+          </li>
+          <li>item3</li>
+        </ul>
+      </div>
+    </div>
+    <div class="div1">Name-3<i class="fa fa-cloud"></i>
+      <div class="dropdown">
+        <ul>
+          <li>item1</li>
+          <li>item2</li>
+          <li>item3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
