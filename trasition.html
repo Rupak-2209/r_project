@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <style>
+      #div1 {
+        width: 100%;
+        height: 200px;
+        background: red;
+        background: linear-gradient(to right, red, yellow);
+      }
+      #div2 {
+        width: 100%;
+        height: 200px;
+        background: red;
+        background: linear-gradient(180deg, red, yellow);
+      }
+      #div3 {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(pink,orange,green, red, yellow);
+      }
+      #div4 {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(to bottom, rgba(255,0,0,0), rgba(255,0,0,1));
+      }
+      #div5 {
+        width: 100%;
+        height: 200px;
+        background: repeating-linear-gradient(red 50px, blue 5px, green 2px);
+      }
+      #div6 {
+        width: 100%;
+        height: 200px;
+        background: radial-gradient(red 5%, blue 20%, green 75%);
+      }
+      #div8 {
+        width: 100%;
+        height: 200px;
+        background: radial-gradient(circle, red, yellow, blue);
+      }
+    </style>
+ </head>
+    <body>
+      <div id="div1"></div><hr/>
+      <div id="div2"></div><hr/>
+      <div id="div3"></div><hr/>
+      <div id="div4"></div><hr/>
+      <!-- Transparency -->
+      <div id="div5"></div><hr/>
+      <!-- Repeating linear gradient -->
+      <div id="div6"></div><hr/>
+      <!-- Set shape -->
+      <div id="div8"></div><hr/>
+    </body>
+</html>
