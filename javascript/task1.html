@@ -1,0 +1,34 @@
+<html>
+  <head>
+      <script>
+        // function class1(){
+        //   this.rollNo = 123,
+        //   this.classe = "1st"
+        // }
+        // function class2(){
+        //   this.c1 = new class1();
+        //   this.name = "rupak",
+        //   this.age = 20
+        // }
+        // var student = new class2();
+        // console.log(student.c1.rollNo);
+        // console.log(student.c1.classe);
+
+        //another method
+        function class3(){
+          this.rollNo = function() {
+            return "123"
+          };
+          this.classe = "1st";
+        }
+        function class4(){
+          this.name = "rupak",
+          this.age = 20
+        }
+        var student2 = new class3();
+        var student1 = new class4();
+        console.log(student2.rollNo.call(student1));
+        //console.log(student.c1.classe);
+      </script>
+  </head>
+</html>

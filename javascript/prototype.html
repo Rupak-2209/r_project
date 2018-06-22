@@ -1,0 +1,35 @@
+<html>
+  <head>
+      <script>
+        var MyConstructor = function (fName,lName){
+          this.fName = fName;
+          this.lName = lName;
+          this.meth = function() {
+            return this.fName + this.lName;
+          }
+        }
+        var obj = new MyConstructor("rupak", "gupta");
+          MyConstructor.fullName = "Rupak Gupta";
+         console.log(obj.fullName);//Rupak gupta
+
+        console.log(obj);
+        MyConstructor.method1 = function() {
+           console.log("hi");
+        }
+        console.log(obj.method1());
+        MyConstructor.prototype.method2 = function() {
+           return this.fName;
+        }
+        //
+        // MyConstructor.fName = "First";
+        // MyConstructor.fName1 = "First1";
+        // console.log(MyConstructor.fName1);
+        // console.log(MyConstructor.fName);
+        // var obj2 = new MyConstructor();
+        // console.log(obj2.fName1);
+        // console.log(obj.fName1);
+        // console.log(obj.method2());
+        // console.log(new MyConstructor("rupak", "gupta").meth())
+      </script>
+  </head>
+</html>

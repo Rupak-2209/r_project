@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <script>
+    //problem of repeation of same output
+        // function start(){
+        //   for(var i=0; i<5; i++)
+        //     setTimeout(function() {
+        //       console.log(i);
+        //     }, 500);
+        // }
+
+      //solution1
+      function doSomething(a){
+        setTimeout( function() {
+          console.log(a)
+        }, 1000);
+      }
+      for(var i=0; i<5; i++)
+        doSomething(i);
+    </script>
+  </head>
+  <body>
+    <input type="button" onclick="start()" value="click me"/>
+  </body>
+</html>

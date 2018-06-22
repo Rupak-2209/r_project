@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <script type="text/javascript">
+        function palindrome(){
+          var Number2 = 12121";
+          console.log(typeof(Number2));
+          var Number1 = Number2;
+          var Str = '';
+          while(Number1/10>0){
+              Str=Str+(Number1%10);
+              Number1=Number1/10;
+              Number1=Math.floor(Number1);
+          }
+          console.log(Number1);
+          console.log(Str);
+          console.log(Number2);
+          console.log(typeof(Str))
+          if(Str == Number2){
+            console.log("it is palindrome");
+          }
+          else{
+            console.log("it is not palindrome");
+          }
+        }
+        palindrome();
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

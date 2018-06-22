@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <script>
+//function expression->anonymous function
+      var sum = function(a, b) { return a * b};
+      console.log(sum(1,2));
+
+//built-in js function constructor
+      var multiply = new Function("a", "b", "c"," a*b*c");
+      console.log(multiply(2,3,4));
+
+//function hoisting
+      myFunction(5);
+      function myFunction(a) {
+        console.log(a);
+      }
+      console.log(typeof myFunction);
+//self-invoking Function
+      (function() {
+        console.log('hello All i am self invoking');
+      })();
+
+//objects are passed by reference
+      var bike = new Object();
+        bike['color'] = "red";
+        bike.name = "Hero";
+        bike.change = function(bik) {
+          this.color = "black";
+        };
+
+      bike.change(bike);
+      console.log(bike.color);
+
+//argument objects
+      function sum1(a, b) {
+        return arguments.length;
+      }
+      console.log(sum1(1, 2, 3));
+
+//conflicts between functions
+      function add1(num1, num2) {
+        console.log(num1 * num2);
+      }
+      function add1(num1) {
+        console.log(num1);
+      }
+      add1(3);
+      add1(2, 2);
+
+//call and apply method difference
+      var myFather = {
+        name: "vivek",
+        age: 50,
+        detail: function(add,mobileNo) {
+          console.log(this.name + " " + this.age + " " + add +  " " + mobileNo);
+        }
+      }
+      var myMother = {
+        name: "sunita",
+        age: 44
+      }
+      myFather.detail.call(myMother, "151,subhash marg", "8602341");
+      myFather.detail.call(myFather, "151,subhash marg", "9425380");
+//using apply()
+      myFather.detail.apply(myMother, ["151,subhash marg", "8602341"]);
+
+//tring alternative to call
+      var obj = {
+        fname : "vivek",
+        lname : "gupta",
+        info : function(para){
+          console.log(para.fName + " " + para.lName);
+        }
+      }
+      var practice = {
+        fName : "rupak",
+        lName : "gupta"
+      }
+      obj.info(practice);
+/* we have to pass object in case of not-call() and apply()*/
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

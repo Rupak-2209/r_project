@@ -1,0 +1,135 @@
+<html>
+  <head>
+    <script>
+    //object creation
+        var myCar = new Object();
+        myCar.color= "white";
+        myCar.name= "BMW"
+    //object access
+      console.log(myCar.name);
+
+    //second way
+      var myCar1 = {name:"BMW" , color:"blue"};
+      console.log(myCar1.color);
+
+    //third way
+      var myCar2= new Object();
+      myCar2['name']='car3';
+      myCar2['color']='color3';
+      console.log(myCar2.color);
+      console.log(typeof myCar2);
+
+    //using function
+      var person={
+        firstName : "rupak",
+        lastName : "gupta",
+        age: 22,
+        details : function() {
+        return ("my name is" + this.firstName + " " + this.lastName + " and my age is" + this.age);
+      }
+    };
+    console.log(person.details());
+    console.log(person.details);
+
+    //built-in methods
+    var name="rupak gupta";
+    console.log(name.toUpperCase());
+
+    //for-in loop
+    var city = {
+      cityName : "Indore",
+      cityRank : 1,
+      cityCode : 452001
+    }
+    for(x in city){
+      console.log(" " + city[x]);
+    }
+    result = city['cityName'] + " " + city['cityRank'] + " " + city['cityCode'];
+    console.log(result);
+
+    //property of property
+    var car = { name: "BMW", color: "blue" , engine: { type : "Four-stoke", size: 2.2 }}
+    console.log(car.name);
+    console.log(car.engine.type);
+    console.log(car['engine["size"]']);//check
+
+    //another way to create object
+    var flat = new function(){
+       this.type = "2-BHK";
+      //  console.log(" this is my " + type + " flat");
+      meth = function(){
+          return this.type;
+        }
+    }
+    console.log("--------"+flat.type);
+
+    //create many objects of bike type
+    function myBike(name, color, number) {
+      this.name = name;
+      this.color = color;
+      this.number = number;
+      this.detail = function(){
+        return "Name:" + this.name + "Color: " + this.color + "Number: " + this.number;
+      }
+    }
+
+    var bike1 = myBike("Hero", "black", 8130);
+    var bike2 = new myBike("plasure", "blue", 2314);
+    console.log(bike1.detail());
+    console.log(bike2.detail());
+
+    //assigning one object to another
+    var object1 = {
+      name : "object1"
+    }
+    var object2 = {
+      name : "object2"
+    }
+    console.log( object1.name );
+    object1 = object2;
+    // console.log( object1.name );
+    object1.name = "changed";
+    console.log(object2.name);
+
+    // console.log( object1.name );
+    // console.log(object2.name);
+
+    //checking parameter behaviour
+    function check(obj)
+      {
+        obj.value = "new";
+      }
+    var old = {
+      value : "old"
+    }
+    console.log(old.value);
+    check(old);
+    console.log(old.value);
+
+    //trying something with this keyword
+    var building = {
+      name : "starPalace",
+      noOfFlats : 50,
+      buildDesc : function() {
+        return this.name + " " + this.noOfFlats;
+      }
+    }
+    var blueRay = {
+      name : "costarica",
+      noOfFlats : 100
+    }
+    console.log(building.buildDesc());
+
+    //scope of this keyword
+    function MyConstructor(){
+      console.dir(this.toString());
+    }
+
+    var instance1 = MyConstructor();    //window
+    var instance2 = new MyConstructor();//Object
+    </script>
+  </head>
+  <body>
+    <p id="info"></p>
+  </body>
+</html>

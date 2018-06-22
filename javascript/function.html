@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script type="text/javascript">
+
+    //nested function and calling
+    function sum(num1) {
+      console.log(num1);
+      var num2 = 2;
+      function sum1() {
+        console.log(num1 + num2);
+      }
+      sum1();
+    }
+
+    //next try
+    console.log(sum_calc(2, 3));
+
+    function sum_calc(num1, num2) {
+      return (num1 + num2);
+    }
+
+    var a = function(num1,num2){
+      return (num1+num2);
+    }
+    console.log(a(2, 4));
+
+    </script>
+  </head>
+  <body>
+    <input type="button" value="sum" onclick="sum(2)">
+  </body>
+</html>
