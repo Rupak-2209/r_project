@@ -1,0 +1,226 @@
+$my-color: #35649B;
+$green: #2ABF90;
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  overflow: auto;
+  height: 53px;
+
+  .toptal-img {
+    width: 20%;
+    float: left;
+    height: inherit;
+
+    #toptal {
+      margin: -4px;
+      margin-left: 42px;
+    }
+  }
+  .head-buttons{
+    width: 80%;
+    float: left;
+    height: inherit;
+
+    .button-2 {
+      float: right;
+      margin-right: 20px;
+      margin-top: 10px;
+      padding: 10px;
+    }
+
+    .button-1
+    {
+      @extend .button-2;
+      background-color: #10AB7E;
+      color: white;
+      margin-right: 25px;
+    }
+  }
+}
+
+.section-2 {
+  width: inherit;
+  height: 400px;
+  background-color: $my-color;
+  margin-top: 30px;
+  .Hire-top {
+    color: white;
+    text-align: center;
+  }
+  .section-2 > .Hire-top {
+    font-size: 60px;
+    padding-top: 30px;
+  }
+  sup {
+    font-size: 20px;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .sec-2-butt {
+    width: inherit;
+    height: 200px;
+    .button-3, .button-4 {
+      padding: 10px;
+      padding-left: 59px;
+      padding-right: 51px;
+      background-color: #10AB7E;
+      color: white;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+  }
+}
+.container {
+      display: flex;
+      [class*="code-"] {
+            width: 32%;
+            height: 200px;
+            background-color: $my-color;
+            margin: 20px;
+            flex-shrink: 0;
+            padding: 5px;
+            flex: 1;
+            .img {
+                  float: left;
+                  display: inline-block;
+                  width: 30%;
+                  height: 100px;
+                  margin: auto;
+                  .image {
+                       margin: 28px;
+                     }
+                }
+            .text {
+                  display: inline-block;
+                  width: 70%;
+                  margin-top: 20px;
+                  .heading {
+                       font-size: 30px;
+                       color: white;
+                     }
+                  .desc {
+                       display: block;
+                       margin-top: 8px;
+                       color: white;
+                     }
+                }
+            .button {
+                  clear: both;
+                  margin-left: 10%;
+                  margin-top: 20px;
+                  .devel-button {
+                       height: 21%;
+                       width: 84%;
+                       color: white;
+                       background-color: $green;
+                       font-weight: bold;
+                       font-size: 15px;
+                       float: left;
+                     }
+                }
+          }
+    }
+    .contain {
+      overflow: auto;
+      .computer {
+        float: left;
+        width: 18%;
+        height: 50px;
+        .img_class {
+          margin: 8px;
+        }
+      }
+      .com-head {
+        float: left;
+        width: 75%;
+        height: 50px;
+        margin-top: 15px;
+        .com-head-1 {
+          color: #4A7AAC;
+        }
+      }
+      .com-desc {
+        clear: both;
+        margin-left: 15px;
+        .com-desc-1 {
+          color: #A0A0A0;
+          text-align: justify;
+        }
+      }
+    }
+
+@media screen and (min-width: 1243px){
+      .container-3 {
+        display: flex;
+      }
+    }
+@media screen and (max-width:1242px) and (min-width:864px){
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        display: inline-block;
+        width: 100%;
+      }
+      .code-1 {
+        width: 45%;
+        float:left;
+        display: inline-block;
+      }
+      .code-2 {
+        width: 45%;
+        float: left;
+        display: inline-block;
+      }
+      .code-3 {
+        margin: 0 auto;
+        clear: both;
+        width:50%;
+      }
+      .container-3 {
+        width: 100%;
+      }
+      .company-1, .company-2, .company-3, .company-4 {
+        float: left;
+        width: 42%;
+        margin-left: 5%;
+      }
+}
+ @media screen and (max-width:863px) and (min-width:400px){
+      * {
+        box-sizing: border-box;
+      }
+      .button-1 {
+          display: none;
+        }
+      .button-3, .button-4 {
+        width: 60%;
+        margin-bottom: 5px;
+        padding: 5px;
+        padding-left: 28px;
+        padding-right: 25px;
+        font-size: 15px;
+      }
+      .section-2 >.Hire-top {
+        font-size: 30px;
+      }
+      .section-2 {
+        height: 300px;
+      }
+      .container {
+        display: inline-block;
+        width: 100%;
+      }
+      .code-1, .code-2, .code-3 {
+        width: 100%;
+        margin-left: 0px;
+      }
+      .company-1, .company-2, .company-3, .company-4 {
+        margin-left: 0px;
+        width: inherit;
+      }
+    }
