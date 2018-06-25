@@ -1,0 +1,36 @@
+<html>
+  <head>
+  </head>
+
+  <body>
+    <div>
+      <p class="one">Hii1</p>
+    </div>
+    <script>
+      //tag-class
+      var x = document.getElementsByTagName("div");
+      var y = x[0].getElementsByClassName("one");
+      console.log(y[0].innerHTML = "hii1 changed");
+    </script>
+
+    <div class="cone">
+      <p class="two">Hii2</p>
+    </div>
+    <script>
+      //class-id
+       var p = document.getElementsByClassName("cone");
+       var q = p[0].getElementsByClassName("two");
+       console.log(q[0].innerHTML = "hii2 changed");
+    </script>
+
+    <div id="three">
+      <p class="four">Hii3</p>
+    </div>
+    <script>
+       var r = document.getElementById("three");
+       var s = r.getElementsByClassName("four");
+       console.log(s[0].innerHTML = "hii3 changed");
+      //console.console.log(document.getElementById("three").firstChild.nodeValue);
+    </script>
+  </body>
+</html>

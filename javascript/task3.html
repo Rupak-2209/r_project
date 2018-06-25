@@ -1,0 +1,39 @@
+<html>
+  <head>
+  </head>
+
+  <body>
+    <div>
+      <p id="one">Hii1</p>
+      <span>I am Span1</span>
+    </div>
+    <script>
+      //tag-id
+      // var x = document.getElementsByTagName("div");
+      // var y = x[0].getElementById("one");
+      // console.log(y.innerHTML);
+    </script>
+
+    <div class="cone">
+      <p id="two">Hii2</p>
+      <span>I am Span2</span>
+    </div>
+    <script>
+      //class-id
+      // var p = document.getElementsByClassName("cone");
+      // var q = p[0].getElementById("two");
+      // console.log(q.innerHTML);
+    </script>
+
+    <div id="three">
+      <p id="four">Hii3</p>
+      <span>I am Span3</span>
+    </div>
+    <script>
+      // var r = document.getElementById("three");
+      // var s = r.getElementById("four");
+      // console.log(s.innerHTML);
+      console.console.log(document.getElementById("three").firstChild.nodeValue);
+    </script>
+  </body>
+</html>

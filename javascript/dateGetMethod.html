@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>get Methods</title>
+  </head>
+
+  <body>
+    <div id="test"></div>
+    <script>
+      //get methods
+      var today = new Date();
+      console.log(today);//Mon Jun 25 2018 17:28:14 GMT+0530 (India Standard Time)
+      console.log(today.getTime());//1529927894760
+      console.log(today.getDate());//25
+      console.log(today.getMonth());//5
+      console.log(today.getYear());//118
+      console.log(today.getHours());//17
+      console.log(today.getMinutes());//28
+      console.log(today.getSeconds());//14
+      console.log(today.getDay());//1
+      console.log(today.getFullYear());//2018
+
+      //set methods
+      var today1 = new Date();
+      today1.setDate(22);
+      today1.setFullYear(2018);
+      today1.setMonth(4);
+      //today1.setDay(1);
+      today1.setHours(22);
+      today1.setMinutes(56);
+      console.log(today1);
+      console.log(typeof today1);
+      console.log(typeof today1.toString());
+
+      //date object creation
+      console.log(new Date());
+      console.log(new Date(2018, 02, 14, 23, 12, 56, 12));
+      console.log(new Date("October 13, 2014 11:13:00"));
+      console.log(new Date(0));
+      console.log(new Date(-1000000));
+      console.log(today1.toUTCString());
+      console.log(today1.toDateString());
+      console.log(today1.toString());
+
+    </script>
+  </body>
+</html>

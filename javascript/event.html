@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <style>
+      #div1 {
+        width: 30%;
+        height: 50px;
+        border: 1px solid blue;
+      }
+    </style>
+    <script>
+      function changeText(id){
+        console.log(id);
+        id.innerHTML = "text clicked";
+      }
+      function func(x){
+        alert(x.innerHTML + ' is copied');
+      }
+    </script>
+  </head>
+
+  <body>
+      <h1 onclick="this.innerHTML='Ooops!'">Click on this text!</h1>
+      <h1 onclick="changeText(this)">Click on the text</h1>
+      <span oncopy="func(this)">copy me</span>
+      <button id="myBtn">click me</button>
+      <div id="demo">
+        <p>this is p tag</p>
+        <p>second</p>
+      </div>
+      <button id="e1">click here</button>
+      <button id="e2">click here1</button>
+      <input type="text" id="num1"/>
+      <input type="text" id="num2"/>
+      <button id="sum">sum</button>
+      <p id="result"></p>
+
+      <!--bubbling default -->
+      <ul onclick="alert('ul')">
+        <li onclick="alert('li')"><a onclick="alert('a')">link1</a></li>
+        <li><a>link2</a></li>
+        <li><a>link3</a></li>
+      </ul>
+
+      <!--capturing example -->
+      <ul id="list">
+        <li onclick="fun2()"><a onclick="fun3()">link1</a></li>
+        <li onclick="fun5()"><a onclick="fun4()">link2</a></li>
+        <li><a>link3</a></li>
+      </ul>
+
+      <!--bubbling example -->
+      <ul id="list1">
+        <li onclick="fun2()"><a onclick="fun3()">link1</a></li>
+        <li onclick="fun5()"><a onclick="fun4()">link2</a></li>
+        <li><a>link3</a></li>
+      </ul>
+
+      <h1 id="id01">My First Page</h1>
+      <p id="id02">Hello!</p>
+
+
+      <script>
+      document.getElementById("myBtn").addEventListener("click", displayDate);
+      function displayDate() {
+        document.getElementById("demo").innerHTML = Date();
+      }
+
+      //Add many handler to same events
+      var element = document.getElementById("e1");
+      element.addEventListener("click", myFunction);
+      element.addEventListener("click", someOtherFunction);
+      element.addEventListener("click", someOtherFunction1);
+      function myFunction() {
+        document.getElementById("demo").innerHTML = "Hello World";
+      }
+      function someOtherFunction() {
+        document.getElementById("demo").innerHTML = "This function was also executed!";
+      }
+      function someOtherFunction1() {
+        document.getElementById("demo").innerHTML = "This function1 was also executed!";
+      }
+
+      //give body inside function
+      var element1 = document.getElementById("e2");
+      element1.addEventListener("click",function() {console.log("Hii");})
+
+      //passing parameters event listener
+      var num1=2, num2=1;
+      function add(val1,val2){
+        var results = val1 + val2;
+        console.log(results);
+        document.getElementById("result").innerHTML = results;
+      }
+      sum.addEventListener("click" , function() {add(num1,num2);});
+
+      //bubbling and capturing
+      var link1= document.getElementById("list");
+      var link2= document.getElementById("list1");
+      function fun1(){
+        console.log("ul");
+      }
+      function fun2(){
+        console.log("li");
+      }
+      function fun3(){
+        console.log("a");
+      }
+      function fun4(){
+        console.log("a1");
+      }
+      function fun5(){
+        console.log("li1");
+      }
+      link1.addEventListener("click", fun1, true);
+      link2.addEventListener("click", fun1, false);
+
+      console.log(document.getElementById("id01").childNodes[0].nodeValue);
+      //
+      alert(document.body.innerHTML);
+      alert(document.documentElement.innerHTML);
+      </script>
+      </div>
+  </body>
+</html>
