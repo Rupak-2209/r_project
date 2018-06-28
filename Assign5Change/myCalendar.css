@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+.date-container {
+    width: 100%;
+    overflow: auto;
+}
+
+.month-heading {
+    text-align: center;
+    padding: 10px;
+    font-size: 32px;
+    width: 94%;
+}
+
+.year-heading {
+    text-align: center;
+    padding: 10px;
+    font-size: 32px;
+    width: 94%;
+    overflow: auto;
+}
+
+.date-block {
+    width: 13%;
+    display: inline-block;
+    float : left;
+    text-align: center;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.date {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    padding: 6px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    background-color: #f5e3af;
+}
+
+.month {
+    text-align: center;
+    margin: 10px;
+    color: white;
+}
+
+.calcImg {
+    margin-top: 8px;
+}
+
+.year {
+    text-align: center;
+    color: white;
+}
+
+.arrow {
+    overflow: auto;
+}
+
+.left-arrow {
+    float: left;
+    padding: 10px;
+    background-color: white;
+}
+
+.right-arrow {
+    float: right;
+    padding: 10px;
+}
+
+.week-days-list {
+    width: 100%;
+}
+
+.day-name {
+    text-decoration: none;
+    overflow: auto;
+    margin-left: -40px;
+}
+
+.days {
+    display: inline;
+    width: 13%;
+    background-color: #48f5dd;;
+    float : left;
+    text-align: center;
+    margin-left: 5px;
+    margin-top: 5px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: white;
+}
