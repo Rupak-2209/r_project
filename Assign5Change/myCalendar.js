@@ -10,6 +10,9 @@ var flag = 0;
 var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thusday", "Friday", "Saturday"];
 var currentDate = new Date();
+var eventStartDate = null;
+var eventEndDate = null;
+
 
 var employees = [
     { "name":"Rahul Kulmi", "birth":"1988-05-28" },
@@ -105,7 +108,6 @@ function appendDate(dateCount, dateCheck) {
         date.setAttribute("style", "background-color: #d3d3d3; color: gray;");
       } else {
             creatingDate(dateCount);
-            console.log(currentDate.getDay());
             // setting title to the birth date of person
             for(var i = 0; i < employees.length; i++) {
                 var person = new Date(employees[i].birth);
@@ -135,12 +137,37 @@ function creatingDate(dateCount) {
     date.innerHTML = dateCount;
     addDate.appendChild(date);
     if(counter % 7 == 0) {
-        console.log(counter+ "green");
         date.setAttribute("style", "color: #16d69b");
     }
     if(counter % 7 == 1) {
-        console.log(counter+ "red");
         date.setAttribute("style", "color: #ff0000");
+    }
+    date.onclick = function(event, date) {
+        if (!eventStartDate) {
+            eventStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), dateCount);
+        } else if (eventStartDate && !eventEndDate) {
+            eventEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), dateCount);
+        }
+        if (eventStartDate && eventEndDate) {
+            start = eventStartDate.getDate();
+            end = eventEndDate.getDate();
+            document.getElementById("select").innerHTML = '';
+            if (eventStartDate.getDate() < eventEndDate.getDate()) {
+                while (eventStartDate.getDate() <= eventEndDate.getDate()){
+                    document.getElementById("select").innerHTML += eventStartDate.getDate() + " " + day[eventStartDate.getDay()] +"<br/>";
+                    eventStartDate.setDate(eventStartDate.getDate()+1);
+              }
+              eventStartDate.setDate(start);
+            }
+            if (eventStartDate.getDate() > eventEndDate.getDate()) {
+                while (eventStartDate.getDate() >= eventEndDate.getDate()){
+                    document.getElementById("select").innerHTML += eventEndDate.getDate() + " " + day[eventEndDate.getDay()] +"<br/>";
+                    eventEndDate.setDate(eventEndDate.getDate()+1);
+              }
+            }
+            eventStartDate = null;
+            eventEndDate = null;
+        }
     }
 }
 
