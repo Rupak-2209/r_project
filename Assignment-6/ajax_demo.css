@@ -1,169 +1,60 @@
-* {
-    box-sizing: border-box;
-}
-
 #video-container {
   display: inline-block;
   width: 100%;
   float: left;
   margin-top: 24px;
-  background-color: #FAFAFA;
-}
+  background-color: #FAFAFA; }
 
-.title {
-  text-align: center;
+#video-container .videos {
+  min-height: 338px; }
+
+#video-container .videos .video-tile {
+  border-radius: 5px;
+  height: 334px;
+  background-color: aliceblue; }
+
+#video-container .videos .video-tile .title {
   margin-top: 20px;
   color: blue;
-}
+  margin-left: 5px; }
 
-.description {
-    text-align: center;
-    margin-top: 20px;
-    color: cadetblue;
-    margin-left: 4px;
-    margin-right: 4px;
-    overflow: hidden;
-}
-
-#text {
-  font-family: 'Roboto', 'Noto', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
+#video-container .videos .video-tile .description {
+  margin-top: 20px;
+  color: cadetblue;
   margin-left: 4px;
-  max-width: 100%;
-  outline: none;
-  text-align: inherit;
-  width: 60%;
-  height: 37px;
-  }
+  margin-right: 4px;
+  overflow: hidden; }
 
-.searchButton {
-    padding: 5px;
-    border-radius: 4px;
-    padding-left: 35px;
-    padding-right: 35px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background-color: blue;
-    color: white;
-    font-size: 14px;
-    font-family: arial;
-}
-
-.input {
-    width: 80%;
-    float: left;
-    margin-top: 10px;
-    margin-left: 122px;
-}
-
-.youtubeImage {
-    width: 10%;
-    float: left;
-}
-
-.videoInfo {
-    width: 24%;
-    float: left;
-    border: 1px solid gray;
-    border-radius: 5px;
-    height: 325px;
-    margin-right: 10px;
-    margin-top: 20px;
-    background-color: aliceblue;
-}
-
-.header-container {
-    overflow: auto;
-}
-
-.fetchedImage {
+#video-container .videos .video-tile .image .fetched-image {
   margin-top: 14px;
-  width: 94%;
-  height: 159px;
-}
+  width: 100%;
+  height: 144px; }
 
-@media screen and (max-width:1200px) {
-  .videoInfo {
-      width: 32%;
-      float: left;
-      border: 1px solid gray;
-      border-radius: 5px;
-      height: 325px;
-      margin-right: 10px;
-      margin-top: 20px;
-      background-color: aliceblue;
-  }
+.top-heading .youtube-heading {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 0px;
+  text-align: center; }
 
-  .input {
-      width: 70%;
-      float: left;
-      margin-top: 10px;
-      margin-left: 122px;
-    }
-}
+.top-heading .search-field .youtube-image {
+  width: 10%;
+  float: left; }
 
-@media screen and (max-width:800px) {
-  .videoInfo {
-      width: 48%;
-      float: left;
-      border: 1px solid gray;
-      border-radius: 5px;
-      height: 325px;
-      margin-right: 10px;
-      margin-top: 20px;
-      background-color: aliceblue;
-  }
-  .input {
-      width: 70%;
-      float: left;
-      margin-top: 10px;
-      margin-left: 122px;
-}
-}
+.top-heading .search-field .input-form {
+  padding-top: 4px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  margin-top: 5px; }
+  .top-heading .search-field .input-form #search-query {
+    width: 100%;
+    padding: 4px 0px; }
 
-@media screen and (max-width:530px) {
-  .videoInfo {
-      width: 98%;
-      float: left;
-      border: 1px solid gray;
-      border-radius: 5px;
-      height: 325px;
-      margin-right: 10px;
-      margin-top: 20px;
-      background-color: aliceblue;
-  }
-  .input {
-      width: 62%;
-      float: left;
-      margin-top: 10px;
-      margin-left: 88px;
-  }
+.top-heading .search-field .button {
+  margin-top: 7px; }
 
-  #text {
-    font-family: 'Roboto', 'Noto', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    margin-left: 4px;
-    max-width: 100%;
-    outline: none;
-    text-align: inherit;
-    width: 60%;
-    height: 32px;
-}
+#video-container .videos {
+  min-width: 300px; }
 
-.searchButton {
-    padding: 5px;
-    border-radius: 4px;
-    padding-left: 18px;
-    padding-right: 18px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    background-color: blue;
-    color: white;
-    font-size: 14px;
-    font-family: arial;
-  }
-}
+/*# sourceMappingURL=ajax_demo.scss.map */
+
+/*# sourceMappingURL=ajax_demo.css.map */

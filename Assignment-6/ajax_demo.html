@@ -1,22 +1,35 @@
 <html>
   <head>
     <title>AJAX</title>
-    <link rel="stylesheet" href="ajax_demo.css"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ajax_demo.css"/>
   </head>
   <body>
-      <div class="header-container">
-          <div class='youtubeImage'>
-              <img src='youtube.png' alt='error'/>
+      <div class="container-fluid top-heading">
+          <div class="jumbotron text-success youtube-heading">
+              <h2 class="text-success">Youtube Video Description</h2>
           </div>
-          <div class='input'>
-              <input type='text' name='searched text' placeholder='Type here' id='text'/>
-              <button class='searchButton' onclick='submitData()'>Search</button>
+          <div class='row'>
+            <div class='col-sm-2 col-xs-4 youtube-img'>
+                <img src='youtube.png' alt='error'/>
+            </div>
+            <div class="col-sm-10 col-xs-8">
+                <div class="row search-field">
+                  <div class='col-sm-9 col-xs-7 input-form'>
+                      <input type='text' name='searched text' placeholder='Type here' id='search-query'/>
+                  </div>
+                  <div class='col-sm-1 col-xs-3'>
+                      <button class='btn btn-primary button' onclick='submitData()'>Search</button>
+                  </div>
+                </div>
+            </div>
           </div>
-      </div>
+        </div>
       <hr/>
-      <div id="video-container">
+      <div id="video-container" class="container-fluid">
       </div>
+
       <script src="ajax_demo.js">
       </script>
   </body>

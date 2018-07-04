@@ -41,6 +41,35 @@
       console.log(today1.toDateString());
       console.log(today1.toString());
 
+      //comparing of toDate
+      var birth = new Date('1988-05-28');
+      console.log(birth.toDateString());
+      var str = birth.getDate() +" "+ birth.getMonth();
+      console.log(birth);
+      var today = new Date();
+
+
+      function Company_member_info(name, date_of_birth) {
+          this.name = name;
+          this.birth_date = date_of_birth;
+          this.get_birth = function() { return this.birth_date; }
+          this.get_name = function() { return this.name; }
+          this.get_info = function() { return new Date(this.birth_date);}
+        }
+
+        var rahul_kulmi = new Company_member_info("Rahul Kulmi", "2018-06-27");
+
+        var c_date = new Date();
+        var str1 = today.getDate() +" "+ today.getMonth();
+        console.log(rahul_kulmi.get_info().getDate()+ " " + rahul_kulmi.get_info().getMonth());
+        var x = c_date.getDate()+ " " + c_date.getMonth();
+
+        switch(x){
+          case rahul_kulmi.get_info().getDate()+ " " + rahul_kulmi.get_info().getMonth():
+          console.log("hello");
+        }
+
+
     </script>
   </body>
 </html>

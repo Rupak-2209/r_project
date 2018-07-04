@@ -1,49 +1,65 @@
-var id = null;
-var title = null;
-var description = null;
-var image = null;
 var nextPageToken = null;
 var url = null;
+var indexOfRow = 0;
+var countOfVideo = 1;
 
 window.onscroll = function(ev) {
     if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
-        var httpReq = new XMLHttpRequest();
-        var url = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyCT-EB9EpBmKKLcbXM13Kl-rdACR7WBEcM&part=snippet&maxResults=10&order=viewCount&q=" + document.getElementById('text').value + "&pageToken="+nextPageToken;
-        display(httpReq, url);
+        url = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyCT-EB9EpBmKKLcbXM13Kl-rdACR7WBEcM&part=snippet&maxResults=10&order=viewCount&q=" + document.getElementById('search-query').value + "&pageToken="+nextPageToken;
+        apiCall();
     }
 };
 
 function submitData() {
-    document.getElementById('video-container').innerHTML = '';
-    var searchedText = document.getElementById("text").value;
-    var httpReq = new XMLHttpRequest();
+    indexOfRow = 0;
+    countOfVideo = 1;
+    var searchedText = document.getElementById("search-query").value;
     url = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyCT-EB9EpBmKKLcbXM13Kl-rdACR7WBEcM&part=snippet&maxResults=10&q=" +searchedText;
-    display(httpReq, url);
+    apiCall();
 }
 
 (function() {
-    var httpReq = new XMLHttpRequest();
     url = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyCT-EB9EpBmKKLcbXM13Kl-rdACR7WBEcM&part=snippet&maxResults=10&q=sports+news";
-    display(httpReq, url);
+    apiCall();
 })();
 
-function display(httpReq1, url1) {
-    httpReq1.open("Get", url1, true);
-    httpReq1.onreadystatechange = function() {
+function apiCall() {
+    var httpReq = new XMLHttpRequest();
+    httpReq.open("Get", url, true);
+    httpReq.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var myObj = JSON.parse(this.responseText);
-            nextPageToken = myObj.nextPageToken;
-            for(var i = 0; i < 8; i++){
-            document.getElementById("video-container").innerHTML += "<div class='videoInfo'>\
-                                                              <div class='image'><center><img src='" +myObj.items[i].snippet.thumbnails.medium.url+ "' alt='cannot display' class='fetchedImage'/><center>\
-                                                              </div>\
-                                                              <div class='title'>" +myObj.items[i].snippet.channelTitle+ "\
-                                                              </div>\
-                                                              <div class='description'>" +myObj.items[i].snippet.description+"\
-                                                              </div>\
-                                                          </div>";
-            }
+            displayVideo(httpReq);
         }
     }
-    httpReq1.send();
+    httpReq.send();
+}
+
+function displayVideo(httpReq) {
+    var  parsedResponse = JSON.parse(httpReq.responseText);
+    nextPageToken = parsedResponse.nextPageToken;
+    if( document.getElementsByClassName('videos')[indexOfRow] == undefined) {
+        var newRow = document.createElement('div');
+        newRow.setAttribute('class', 'row videos');
+        var videoContainer = document.getElementById('video-container');
+        videoContainer.appendChild(newRow);
+    }
+    var temp = countOfVideo;
+    for(; countOfVideo <= parsedResponse.items.length + temp; countOfVideo++) {
+        document.getElementsByClassName("videos")[indexOfRow].innerHTML += "<div class='col-md-3 col-xs-6 col-sm-4 video-tile'>\
+                                                                <div class='image'><img src='" +parsedResponse.items[(countOfVideo-1) % 10].snippet.thumbnails.medium.url+ "' alt='cannot display' class='fetched-image'/>\
+                                                                </div>\
+                                                                <div class='title'>" +parsedResponse.items[(countOfVideo-1) % 10].snippet.title+ "\
+                                                                </div>\
+                                                                <div class='description'>" +parsedResponse.items[(countOfVideo-1) % 10].snippet.description+"\
+                                                                </div>\
+                                                            </div>";
+        if((countOfVideo > 1) && (countOfVideo % 4) == 0) {
+            var newRow = document.createElement('div');
+            newRow.setAttribute('class', 'row videos');
+            var videoContainer = document.getElementById('video-container');
+            videoContainer.appendChild(newRow);
+            indexOfRow++;
+        }
+    }
+
 }
