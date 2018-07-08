@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+  * #calendar {
+    width: 80%;
+    margin: auto;
+    border: 1px solid gray; }
+    * #calendar .month-heading {
+      text-align: center;
+      padding: 10px;
+      font-size: 32px;
+      width: 94%; }
+      * #calendar .month-heading .left-arrow {
+        float: left;
+        padding: 10px; }
+      * #calendar .month-heading .right-arrow {
+        float: right;
+        padding: 10px; }
+    * #calendar .year-heading {
+      text-align: center;
+      padding: 10px;
+      font-size: 32px;
+      width: 94%;
+      overflow: auto; }
+      .week-days-list {
+        width: 100%; }
+      * #calendar .year-heading .left-arrow {
+        float: left;
+        padding: 10px; }
+      * #calendar .year-heading .right-arrow {
+        float: right;
+        padding: 10px; }
+    * #calendar .week-days-list .day-name {
+      text-decoration: none;
+      overflow: auto;
+      margin-left: 0px; }
+      .week-days-list .day-name .days {
+        display: inline;
+        width: 13%;
+        background-color: #48f5dd;
+        float: left;
+        text-align: center;
+        margin-left: 2px;
+        margin-top: 2px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        color: white; }
+    * #calendar .date-container {
+      width: 100%;
+      overflow: auto;
+      padding-left: 39px; }
+      * #calendar .date-container .date-block {
+        width: 13%;
+        display: inline-block;
+        float: left;
+        text-align: center;
+        margin-left: 2px;
+        margin-top: 2px; }
+        * #calendar .date-container .date-block .date {
+          display: block;
+          width: 100%;
+          margin-left: auto;
+          padding: 6px;
+          padding-top: 32px;
+          padding-bottom: 32px;
+          background-color: #f5e3af; }
+        * #calendar .date-container .date-block .other-month {
+          background-color: #d3d3d3;
+          color: gray; }
+        * #calendar .date-container .date-block .birthday {
+          background-color: #87ceeb;
+          color: white; }
+        * #calendar .date-container .date-block .today {
+          background-color: pink; }
+        * #calendar .date-container .date-block .range-element {
+          background-color: yellow; }
+      * #calendar .date-container .sunday {
+        color: #ff0000; }
+      * #calendar .date-container .saturday {
+        color: #16d69b; }
+
+/*
+.arrow {
+    overflow: auto;
+} */
+
+/*# sourceMappingURL=myCalendar.scss.map */
