@@ -1,136 +1,202 @@
+$date-color: #ffffff;
+$selected-date-color: #f0f8ff;
+$days-bg-color: #48f5dd;
+$date-bg-color: #f5e3af;
+$othermonth-bg-color: #d3d3d3;
+$today-color: #FFB6C1;
+$range-color: #ffe4e1;
+
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
 
-* #calendar {
-  width: 80%;
-  margin: auto;
-  border: 1px solid #003366; }
+  #selected-date {
+    background-color: $selected-date-color;
+    color: #ffa500;
+    width: 80%;
+    margin: auto;
+  }
 
-* #calendar .month-heading {
-  text-align: center;
-  padding: 10px;
-  font-size: 26px;
-  width: 100%; }
+  #calendar {
+    border: 1px solid #003366;
+    margin: auto;
+    width: 80%;
 
-* #calendar .month-heading .left-arrow {
-  float: left;
-  padding: 10px; }
+    .month-heading {
+      font-size: 26px;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
 
-* #calendar .month-heading .right-arrow {
-  float: right;
-  padding: 10px; }
+      .left-arrow {
+        float: left;
+        padding: 10px;
+      }
 
-* #calendar .year-heading {
-  text-align: center;
-  padding: 10px;
-  font-size: 26px;
-  width: 100%;
-  overflow: auto; }
+      .right-arrow {
+        float: right;
+        padding: 10px;
+      }
+    }
 
-.week-days-list {
-  width: 100%; }
+    .year-heading {
+      font-size: 26px;
+      overflow: auto;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
 
-* #calendar .year-heading .left-arrow {
-  float: left;
-  padding: 10px; }
+      .left-arrow {
+        float: left;
+        padding: 10px;
+      }
 
-* #calendar .year-heading .right-arrow {
-  float: right;
-  padding: 10px; }
+      .right-arrow {
+        float: right;
+        padding: 10px;
+      }
+    }
 
-* #calendar .week-days-list .day-name {
-  text-decoration: none;
-  overflow: auto;
-  margin-left: 0px; }
+    .week-days-list {
+      .day-name {
+        overflow: auto;
+        padding-left: 9px;
 
-.week-days-list .day-name .days {
-  display: inline;
-  width: 13%;
-  background-color: #48f5dd;
-  float: left;
-  text-align: center;
-  margin-left: 2px;
-  margin-top: 2px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  color: #ffffff; }
+        .days {
+          background-color: $days-bg-color;
+          color: $date-color;
+          display: inline;
+          float: left;
+          margin: 2px 0px 0px 2px;
+          padding: 12px 0px;
+          text-align: center;
+          width: 13.9%;
+         }
+      }
+    }
 
-* #calendar .date-container {
-  width: 100%;
-  overflow: auto;
-  padding-left: 39px;
-  padding-bottom: 20px; }
+    .date-container {
+      overflow: auto;
+      padding-left: 9px;
+      padding-bottom: 20px;
+      width: 100%;
 
-* #calendar .date-container .date-block {
-  width: 13%;
-  display: inline-block;
-  float: left;
-  text-align: center;
-  margin-left: 2px;
-  margin-top: 2px;
-  background-color: #f5e3af;
-  padding: 28px;
-  height: 84px;
+      .date-block {
+        background-color: $date-bg-color;
+        float: left;
+        height: 84px;
+        margin: 2px 0px 0px 2px;
+        padding: 28px;
+        text-align: center;
+        width: 13.9%;
+      }
+
+      .other-month {
+        background-color: $othermonth-bg-color;
+        color: #d3ffce;
+      }
+
+      .birthday {
+        color: $date-color;
+        float: right;
+      }
+
+      .today {
+        background-color: $today-color;
+        color: $date-color;
+      }
+
+      .range-element {
+        background-color: $range-color;
+        cursor: pointer;
+      }
+
+      .sunday {
+        color: #ff0000;
+      }
+
+      .saturday {
+        color: #16d69b;
+      }
+    }
+  }
 }
 
-* #calendar .date-container .other-month {
-  background-color: #d3d3d3;
-  color: #d3ffce; }
+@media screen and (max-width: 768px) {
+  * #calendar {
+    width: 100%;
 
-* #calendar .date-container .birthday {
-  color: #ffffff; }
+    .year-heading {
+      font-size: 20px;
 
-* #calendar .date-container .date-block .today {
-  color: #ffffff; }
+      .left-arrow {
+        float: left;
+        padding: 7px;
+      }
 
-* #calendar .date-container .range-element {
-  background-color: #ffe4e1; }
+      .right-arrow {
+        float: right;
+        padding: 7px;
+      }
+    }
 
-* #calendar .date-container .sunday {
-  color: #ff0000; }
+    .month-heading {
+      font-size: 20px;
 
-* #calendar .date-container .saturday {
-  color: #16d69b; }
+      .left-arrow {
+        float: left;
+        padding: 7px;
+      }
 
-* #selected-date {
-  width: 80%;
-  margin: auto;
-  background-color: #f0f8ff;
-  color: #ffa500; }
+      .right-arrow {
+        float: right;
+        padding: 7px;
+      }
+    }
 
-@media screen and (max-width: 400px) {
-  #calendar {
-    width: 100%; }
+    .date-container {
+      padding-left: 0px;
 
-  #calendar .week-days-list .day-name .days {
-    content: sun; }
+      .date-block {
+        background-color: $date-bg-color;
+        float: left;
+        height: 84px;
+        margin: 2px 0px 0px 2px;
+        padding: 6%;
+        text-align: center;
+        width: 13.9%;
+      }
 
-  #calendar .year-heading {
-    font-size: 20px; }
+      .today {
+        background-color: $today-color;
+        color: $date-color;
+      }
 
-  #calendar .month-heading {
-    font-size: 20px; }
+      .other-month {
+        background-color: $othermonth-bg-color;
+        color: #d3ffce;
+      }
 
-  * #calendar .year-heading .left-arrow {
-    float: left;
-    padding: 7px; }
+      .range-element {
+        background-color: $range-color;
+        cursor: pointer;
+      }
+    }
 
-  * #calendar .year-heading .right-arrow {
-    float: right;
-    padding: 7px; }
+    .week-days-list {
+      .day-name {
+        padding-left: 0px;
 
-  * #calendar .month-heading .left-arrow {
-    float: left;
-    padding: 7px; }
-
-  * #calendar .month-heading .right-arrow {
-    float: right;
-    padding: 7px; } }
-/*
-.arrow {
-    overflow: auto;
-} */
-/*# sourceMappingURL=myCalendar.scss.map */
-/*# sourceMappingURL=myCalendar.css.map */
-
-/*# sourceMappingURL=jQueryCalendar.scss.map */
+        .days {
+          background-color: $days-bg-color;
+          color: $date-color;
+          display: inline;
+          float: left;
+          margin: 2px 0px 0px 2px;
+          padding: 12px 0px;
+          text-align: center;
+          width: 13.5%;
+        }
+      }
+    }
+  }
+}

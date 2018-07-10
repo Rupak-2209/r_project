@@ -1,5 +1,6 @@
 var _dateContainer = null;
 var _date = null;
+var weekDaysList = null;
 var _yearHeading = null;
 var _monthHeading = null;
 var _monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -7,7 +8,7 @@ var _day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thusday", "Friday", "Sa
 var _currentDate = new Date();
 var _eventStartDate = 0;
 var _eventEndDate = 0;
-var _employees = {
+var _birthdays = {
     "January": [
         { "name":"Darshana", "birth":"1997-01-15" },
         { "name":"Vipin Joshi", "birth":"1946-01-15" },
@@ -59,53 +60,24 @@ var _employees = {
     ]
 }
 
+$(window).resize(function() {
+    updateWeekDay();
+});
+
 $(document).ready(function(){
     createHeadings();
     createCalendar();
     addBirthdayEvent();
 });
 
-function addBirthdayEvent() {
-    //fetch all birthday of this month
-    var firstDay = new Date(_currentDate.getFullYear(), _currentDate.getMonth(), 1);
-    var names;
-    console.log(_employees[_monthNames[firstDay.getMonth()]]);
-    for(var i = 0; i < _employees[_monthNames[firstDay.getMonth()]].length; i++) {
-        var person = new Date(_employees[_monthNames[firstDay.getMonth()]][i].birth);
-        if(person.getMonth() === _currentDate.getMonth()) {
-            var dateIndex = person.getDate() + firstDay.getDay() - 1;
-            var title = $(".date-block").eq(dateIndex).children(".material-icons").attr("title");
-            if(title == null) {
-                $(".date-block").eq(dateIndex).append("<i class='material-icons'>cake</i>");
-                $(".date-block").eq(dateIndex).children(".material-icons").addClass("birthday").attr("title", _employees[_monthNames[firstDay.getMonth()]][i].name);
-                $(".date-block").eq(dateIndex).children(".material-icons").click(function(event) {
-                    event.stopPropagation();
-                    alert(event.target.title);
-                });
-            } else {
-                names = title + "," + _employees[_monthNames[firstDay.getMonth()]][i].name;
-                $(".date-block").eq(dateIndex).children(".material-icons").addClass("birthday").attr("title", names);
-            }
-        }
-    }
-    if(new Date().getMonth() == _currentDate.getMonth()) {
-        $(".date-block").eq(new Date().getDate() + firstDay.getDay() - 1).append("<i class='fa fa-sun-o sun'></i>").children(".sun").addClass("today").attr("title", "Today");
-    }
-}
-
 function createHeadings() {
     _monthHeading = $("<div></div>").addClass("month-heading");
     updateMonthHeading();
     _yearHeading = $("<div></div>").addClass("year-heading");
     updateYearHeading();
-    weekDaysList = $("<div></div>").addClass("week-days-list");
-    weekDay = $("<ul></ul>").addClass("day-name");
-    for(var i = 0; i < 7; i++){
-        weekDay.append("<li class='days'>"+ _day[i] +"</li>");
-    }
-    weekDaysList.append(weekDay);
     _dateContainer = $("<div></div>").addClass("date-container");
-    $("#calendar").append(_yearHeading, _monthHeading, weekDaysList);
+    $("#calendar").append(_yearHeading, _monthHeading);
+    updateWeekDay();
 }
 
 function updateMonthHeading() {
@@ -114,6 +86,31 @@ function updateMonthHeading() {
 
 function updateYearHeading() {
     _yearHeading.html("<button onclick='previousYear()' class='left-arrow'>&lt</button>"+ _currentDate.getFullYear() +"<button onclick='nextYear()' class='right-arrow'>&gt</button>");
+}
+
+function updateWeekDay() {
+    if(weekDaysList == null) {
+        createWeekList();
+        $("#calendar").append(weekDaysList);
+    } else {
+        weekDaysList.remove();
+        createWeekList();
+        weekDaysList.insertAfter(_monthHeading);
+  }
+}
+
+function createWeekList() {
+    weekDaysList = $("<div></div>").addClass("week-days-list");
+    if($(window).innerWidth() <= 768) {
+        _day = ["Sun", "Mon", "Tues", "Wed", "Thus", "Fri", "Sat"];
+    } else {
+        _day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thusday", "Friday", "Saturday"];
+    }
+    weekDay = $("<ul></ul>").addClass("day-name");
+    for(var i = 0; i < 7; i++){
+        weekDay.append("<li class='days'>"+ _day[i] +"</li>");
+    }
+    weekDaysList.append(weekDay);
 }
 
 function createCalendar() {
@@ -126,19 +123,22 @@ function createCalendar() {
     var countNextDate = firstDay.getDay();
     var temp = previousDate - countNextDate + 1;
     var dateCount = null;
-    var j = 0;
+    var j = -1;
     var i = 0;
     do {
         dateCount = new Date(year, month - 1, temp + i);
         appendDate(dateCount);
-        if((dateCount.getDate() == lastDay.getDate()) && (lastDay.getDay() != 6)) {
+        if((dateCount.getDate() == lastDay.getDate()) && (dateCount.getMonth() == lastDay.getMonth())) {
+            if(lastDay.getDay() == 6) {
+                break;
+            }
             j = 7 - lastDay.getDay();
         }
-        if(j != 0){
+        if(j != -1) {
             j--;
         }
         i++;
-     } while((dateCount.getMonth() <= _currentDate.getMonth()) || (j != 0));
+    } while(j != 0);
 }
 
 function appendDate(dateCount) {
@@ -148,16 +148,23 @@ function appendDate(dateCount) {
     } else {
         creatingDate(dateCount.getDate());
         if(dateCount.getDay() == 6) {
-            addDate.addClass("saturday");
+            _date.parent().addClass("saturday");
         }
         if(dateCount.getDay() == 0) {
-            addDate.addClass("sunday");
+            _date.parent().addClass("sunday");
         }
-        addDate.click(function(event) {
+        _date.parent().click(function(event) {
             selectRange(Number(event.target.childNodes[0].innerHTML));
         });
       }
     $("#calendar").append(_dateContainer);
+}
+
+function creatingDate(dateCount) {
+    var addDate = $("<div></div>").attr("class", "date-block");
+    _dateContainer.append(addDate);
+    _date = $("<span></span>" , { text: dateCount }).addClass("date");
+    addDate.append(_date);
 }
 
 function selectRange(selectedDate) {
@@ -174,28 +181,52 @@ function selectRange(selectedDate) {
         if(_eventStartDate < _eventEndDate){
             colorSelectedDates(_eventStartDate, _eventEndDate, firstDayOfMonth);
         }
-        if(_eventEndDate < _eventStartDate){
+        if(_eventEndDate < _eventStartDate) {
             colorSelectedDates(_eventEndDate, _eventStartDate, firstDayOfMonth);
         }
     }
 }
 
 function colorSelectedDates(startDate, endDate, firstDayOfMonth) {
+    var start = startDate;
+    var end = endDate;
     while(startDate <= endDate) {
         var dayOfEvent = new Date(_currentDate.getFullYear(), _currentDate.getMonth(), startDate);
         $(".date-block").eq(startDate + firstDayOfMonth.getDay() - 1).addClass("range-element");
-        $(".select").append(startDate + " " + _day[dayOfEvent.getDay()]);
+        if((dayOfEvent.getDate() == start) || (dayOfEvent.getDate() == end)) {
+            $(".select").append(startDate + " " + _day[dayOfEvent.getDay()]+ "<br/>");
+        }
         startDate++;
     }
     _eventStartDate = 0;
     _eventEndDate = 0;
 }
 
-function creatingDate(dateCount) {
-    addDate = $("<div></div>").attr("class", "date-block");
-    _dateContainer.append(addDate);
-    _date = $("<span></span>" , { text: dateCount }).addClass("date");
-    addDate.append(_date);
+function addBirthdayEvent() {
+    //fetch all birthday of this month
+    var firstDay = new Date(_currentDate.getFullYear(), _currentDate.getMonth(), 1);
+    var names;
+    var birthMonth = _birthdays[_monthNames[_currentDate.getMonth()]];
+    for(var i = 0; i < birthMonth.length; i++) {
+        var person = new Date(birthMonth[i].birth);
+        var dateIndex = person.getDate() + firstDay.getDay() - 1;
+        var title = $(".date-block").eq(dateIndex).children(".material-icons").attr("title");
+        if(title == null) {
+            $(".date-block").eq(dateIndex).append("<i class='material-icons'>cake</i>");
+            $(".date-block").eq(dateIndex).children(".material-icons").addClass("birthday").attr("title", birthMonth[i].name);
+            $(".date-block").eq(dateIndex).children(".material-icons").click(function(event) {
+                event.stopPropagation();
+                alert(event.target.title);
+            });
+        } else {
+            names = title + "," + birthMonth[i].name;
+            $(".date-block").eq(dateIndex).children(".material-icons").addClass("birthday").attr("title", names);
+        }
+
+    }
+    if((new Date().getMonth() == _currentDate.getMonth()) && (new Date().getFullYear() == _currentDate.getFullYear())) {
+        $(".date-block").eq(new Date().getDate() + firstDay.getDay() - 1).addClass("today").attr("title", "Today");
+    }
 }
 
 function createMonth() {
