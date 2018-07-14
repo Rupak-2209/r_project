@@ -60,7 +60,7 @@
           .site-container .books-container .book-row .book-tile .book .rating-heart-container .rating-bar .rating {
             color: black;
             float: left;
-            font-size: 22px;
+            font-size: 17px;
             margin-top: 15px; }
           .site-container .books-container .book-row .book-tile .book .rating-heart-container .rating-bar .show-rating {
             color: orange; }
@@ -68,12 +68,56 @@
           width: 20%;
           float: right; }
           .site-container .books-container .book-row .book-tile .book .rating-heart-container .heart-img-container .heart-img {
-            font-size: 25px;
+            font-size: 20px;
             margin-top: 12px; }
           .site-container .books-container .book-row .book-tile .book .rating-heart-container .heart-img-container .heart-clicked {
             color: red; }
-        .site-container .books-container .book-row .book-tile .book .buy-button .button {
-          margin: 7px;
-          padding: 6px 32px; }
+        .site-container .books-container .book-row .book-tile .book .buy-button {
+          margin-top: 14px; }
+          .site-container .books-container .book-row .book-tile .book .buy-button .button {
+            display: block;
+            padding: 6px 32px;
+            margin: 7px auto; }
+
+.book-info-container .dialog-box .content .header {
+  text-align: center; }
+.book-info-container .dialog-box .content .body-modal .title {
+  margin: 0;
+  line-height: 1.42857143;
+  color: brown; }
+.book-info-container .dialog-box .content .body-modal .modal-image-container .modal-book-image {
+  width: 100%;
+  height: 217px; }
+.book-info-container .dialog-box .content .body-modal .modal-book-details .modal-sub-title {
+  color: chocolate;
+  font-size: 16px;
+  margin-bottom: 8px; }
+.book-info-container .dialog-box .content .body-modal .modal-book-details .modal-description {
+  color: darkblue;
+  font-family: Consolas;
+  font-size: 18px;
+  text-align: justify;
+  margin-bottom: 8px; }
+.book-info-container .dialog-box .content .body-modal .modal-book-details .modal-isdn-number {
+  color: cadetblue;
+  font-size: 19px; }
+
+.fa-1x {
+  font-size: 1.5rem; }
+
+.navbar-toggler.toggler-example {
+  cursor: pointer; }
+
+.dark-blue-text {
+  color: #0A38F5; }
+
+.dark-pink-text {
+  color: #AC003A; }
+
+.dark-amber-text {
+  color: #ff6f00; }
+
+.dark-teal-text {
+  color: #004d40; }
 
 /*# sourceMappingURL=bookSite.css.map */

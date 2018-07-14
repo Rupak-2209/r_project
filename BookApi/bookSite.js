@@ -1,10 +1,25 @@
 var pageNumber = 1;
 var newRow  = null;
 var bookSelected = null;
+var indexOfRow = 0;
+var countOfBook = 1;
 
 $(document).ready(function() {
-    makeApiCall("php");
+    makeApiCall("php/page/1");
     addEventOnNavBar();
+    $(window).scroll(function() {
+        var url = null;
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+            pageNumber++;
+            if (bookSelected != null) {
+                url = bookSelected + "/page/" + pageNumber ;
+            } else {
+                url = 'php/page/'+ pageNumber;
+              }
+            console.log(pageNumber);
+            makeApiCall(url);
+        }
+    });
 });
 
 function createBookTile(resp) {
@@ -13,25 +28,28 @@ function createBookTile(resp) {
     for (var j = 0; j < 5; j++) {
         starRating += "<span class='fa fa-star rating'></span>";
     }
-    for (var i = 0; i < resp.Books.length ; i++) {
-        if (i == 0) {
-            newRow = $("<div class='book-row row'></div>");
-            bookContainer.append(newRow);
-        }
+    if( $(".book-row").eq(indexOfRow).text() === "" ) {
+        var newRow = $("<div class='book-row row'></div>");
+        $('.books-container').append(newRow);
+    }
+    var temp = countOfBook;
+    for(; countOfBook < resp.Books.length + temp; countOfBook++) {
+        var bookIndex = (countOfBook - 1) % 10;
         var bookTile = "<div class='col-md-3 col-sm-6 book-tile'>\
                             <div class='book'>\
-                              <div class='image-container'><img  class='image' src='" + resp.Books[i].Image + "' title='ISBN: "+ resp.Books[i].ID +"'></div>\
-                              <div class='title'><span>" + resp.Books[i].Title + "</span></div>\
-                              <div class='book-desc'>" + resp.Books[i].Description + "</div><hr class='separator'/>\
+                              <div class='image-container'><img  class='image' src='" + resp.Books[bookIndex].Image + "' title='ISBN: "+ resp.Books[bookIndex].ID +"'></div>\
+                              <div class='title'><span>" + resp.Books[bookIndex].Title + "</span></div>\
+                              <div class='book-desc'>" + resp.Books[bookIndex].Description + "</div><hr class='separator'/>\
                               <div class='clearfix rating-heart-container'><div class='rating-bar'>" + starRating + "</div><div class='heart-img-container'><i class='heart-img fa fa-heart-o'/></div></div>\
-                              <div class='buy-button'><center><button class='btn btn-success button'>BUY</button></center></div>\
+                              <div class='buy-button'><button class='btn btn-success button' data-toggle='modal' data-target='#book-modal' data-id='" + JSON.stringify(resp.Books[bookIndex]).replace(/'/g, "\\u0027") + "'>DETAIL</button></div>\
                             </div>\
                           </div>";
-        newRow.append(bookTile);
+        $('.book-row').eq(indexOfRow).append(bookTile);
 
-        if((i + 1) % 4 == 0) {
-            newRow = $("<div class='book-row row'></div>");
-            bookContainer.append(newRow);
+        if((countOfBook > 1) && (countOfBook % 4) == 0) {
+            var newRow = $("<div class='book-row row'></div>");
+            $('.books-container').append(newRow);
+            indexOfRow++;
         }
     }
 
@@ -49,18 +67,22 @@ function createBookTile(resp) {
         $(this).siblings().removeClass('active');
         $(this).addClass('active');
     });
-}
 
-$(window).scroll(function() {
-    if ($(window).innerHeight() + window.scrollY >= document.body.scrollHeight) {
-        url = bookSelected +"/page"+ pageNumber;
-        pageNumber++;
-        makeApiCall(url);
-    }
-});
+    $('.button').on("click", function () {
+        var bookInfo = $(this).data('id');
+        $(".modal-isdn-number").html(bookInfo.ID);
+        $(".modal-description").html(bookInfo.Description);
+        $(".modal-sub-title").html(bookInfo.isbn);
+        $(".modal-book-image").attr("src", bookInfo.Image);
+        $(".modal-title").html(bookInfo.Title);
+    });
+}
 
 function addEventOnNavBar() {
     var bookNames = $(".book-name").on("click", function(event) {
+        countOfBook = 1;
+        pageNumber = 1;
+        indexOfRow = 0;
         bookSelected = event.target.innerHTML;
         $(".books-container").text('');
         makeApiCall(bookSelected);
@@ -69,13 +91,12 @@ function addEventOnNavBar() {
 
 function makeApiCall(book) {
     $.ajax({
-      url: 'http://it-ebooks-api.info/v1/search/'+ book +'/',
+      url: 'http://it-ebooks-api.info/v1/search/'+ book,
       type: 'GET',
       data: {
           format: 'json'
       },
       success: function(response) {
-          console.log(response);
           createBookTile(response);
       },
       error: function() {
