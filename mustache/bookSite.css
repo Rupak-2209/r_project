@@ -1,19 +1,18 @@
 .site-container .heading {
+  background-color: lightseagreen;
+  color: #fff;
   margin: 0px;
   text-align: center; }
-.site-container .heading {
-  background-color: lightseagreen;
-  color: #fff; }
 .site-container .vertical-menu {
   padding-right: 0px;
   margin-top: 18px; }
   .site-container .vertical-menu .book-name {
+    color: #337ab7;
     display: block;
+    font-size: 18px;
     padding: 12px;
     text-decoration: none;
-    text-align: center;
-    font-size: 18px;
-    color: #337ab7; }
+    text-align: center; }
     .site-container .vertical-menu .book-name:hover {
       background-color: #ccc; }
   .site-container .vertical-menu .active {
@@ -31,12 +30,12 @@
       .site-container .books-container .book-tile .book .separator {
         margin: 0px; }
       .site-container .books-container .book-tile .book .image-container .image {
-        position: relative;
+        border-radius: 5px;
+        border-color: #fff;
         display: block;
         height: 200px;
-        width: 100%;
-        border-radius: 5px;
-        border-color: #fff; }
+        position: relative;
+        width: 100%; }
         .site-container .books-container .book-tile .book .image-container .image:hover {
           opacity: 0.5; }
       .site-container .books-container .book-tile .book .title {
@@ -52,9 +51,9 @@
         margin: 5px 0px;
         overflow: hidden; }
       .site-container .books-container .book-tile .book .rating-heart-container .rating-bar {
-        width: 80%;
         float: left;
-        margin-top: 0px; }
+        margin-top: 0px;
+        width: 80%; }
         .site-container .books-container .book-tile .book .rating-heart-container .rating-bar .rating {
           color: black;
           float: left;
@@ -63,8 +62,8 @@
         .site-container .books-container .book-tile .book .rating-heart-container .rating-bar .show-rating {
           color: orange; }
       .site-container .books-container .book-tile .book .rating-heart-container .heart-img-container {
-        width: 20%;
-        float: right; }
+        float: right;
+        width: 20%; }
         .site-container .books-container .book-tile .book .rating-heart-container .heart-img-container .heart-img {
           font-size: 20px;
           margin-top: 12px; }
@@ -80,12 +79,12 @@
 .book-info-container .dialog-box .content .header {
   text-align: center; }
 .book-info-container .dialog-box .content .body-modal .title {
-  margin: 0;
+  color: brown;
   line-height: 1.42857143;
-  color: brown; }
+  margin: 0; }
 .book-info-container .dialog-box .content .body-modal .modal-image-container .modal-book-image {
-  width: 100%;
-  height: 217px; }
+  height: 217px;
+  width: 100%; }
 .book-info-container .dialog-box .content .body-modal .modal-book-details .modal-sub-title {
   color: chocolate;
   font-size: 16px;
@@ -99,23 +98,5 @@
 .book-info-container .dialog-box .content .body-modal .modal-book-details .modal-isdn-number {
   color: cadetblue;
   font-size: 19px; }
-
-.fa-1x {
-  font-size: 1.5rem; }
-
-.navbar-toggler.toggler-example {
-  cursor: pointer; }
-
-.dark-blue-text {
-  color: #0A38F5; }
-
-.dark-pink-text {
-  color: #AC003A; }
-
-.dark-amber-text {
-  color: #ff6f00; }
-
-.dark-teal-text {
-  color: #004d40; }
 
 /*# sourceMappingURL=bookSite.css.map */

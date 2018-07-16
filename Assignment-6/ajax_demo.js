@@ -11,6 +11,7 @@ window.onscroll = function(ev) {
 };
 
 function submitData() {
+    document.getElementById('video-container').innerHTML = '';
     indexOfRow = 0;
     countOfVideo = 1;
     var searchedText = document.getElementById("search-query").value;
@@ -46,11 +47,11 @@ function displayVideo(httpReq) {
     var temp = countOfVideo;
     for(; countOfVideo <= parsedResponse.items.length + temp; countOfVideo++) {
         document.getElementsByClassName("videos")[indexOfRow].innerHTML += "<div class='col-md-3 col-xs-6 col-sm-4 video-tile'>\
-                                                                <div class='image'><img src='" +parsedResponse.items[(countOfVideo-1) % 10].snippet.thumbnails.medium.url+ "' alt='cannot display' class='fetched-image'/>\
+                                                                <div class='image'><img src='" +parsedResponse.items[(countOfVideo - 1) % 10].snippet.thumbnails.medium.url+ "' alt='cannot display' class='fetched-image'/>\
                                                                 </div>\
-                                                                <div class='title'>" +parsedResponse.items[(countOfVideo-1) % 10].snippet.title+ "\
+                                                                <div class='title'>" +parsedResponse.items[(countOfVideo - 1) % 10].snippet.title+ "\
                                                                 </div>\
-                                                                <div class='description'>" +parsedResponse.items[(countOfVideo-1) % 10].snippet.description+"\
+                                                                <div class='description'>" +parsedResponse.items[(countOfVideo - 1) % 10].snippet.description+"\
                                                                 </div>\
                                                             </div>";
         if((countOfVideo > 1) && (countOfVideo % 4) == 0) {

@@ -50,13 +50,13 @@ var showBookDetail = function (bookId) {
     for (var i = 0; i < apiResponse.Books.length; i++) {
         if(apiResponse.Books[i].ID == bookId) {
             var modalDetail = $('#modal-template').html();
-            $('.content').text('');
             view = {
               "ID" : apiResponse.Books[i].ID,
               "Description" : apiResponse.Books[i].Description,
               "SubTitle" : apiResponse.Books[i].SubTitle,
               "Title" : apiResponse.Books[i].Title,
-              "Image" : apiResponse.Books[i].Image
+              "Image" : apiResponse.Books[i].Image,
+              "isbn" : apiResponse.Books[i].isbn
             };
             $('.content').append(Mustache.render(modalDetail, view));
         }

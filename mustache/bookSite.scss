@@ -1,13 +1,9 @@
-
 .site-container {
-  .heading {
-    margin: 0px;
-    text-align: center;
-  }
-
   .heading {
     background-color: lightseagreen;
     color: #fff;
+    margin: 0px;
+    text-align: center;
   }
 
   .vertical-menu {
@@ -15,12 +11,12 @@
     margin-top: 18px;
 
     .book-name {
+      color: #337ab7;
       display: block;
+      font-size: 18px;
       padding: 12px;
       text-decoration: none;
       text-align: center;
-      font-size: 18px;
-      color: #337ab7;
 
       &:hover {
         background-color: #ccc;
@@ -52,12 +48,12 @@
         .image-container {
 
           .image {
-            position: relative;
-            display: block;
-            height: 200px;
-            width: 100%;
             border-radius: 5px;
             border-color: #fff;
+            display: block;
+            height: 200px;
+            position: relative;
+            width: 100%;
 
             &:hover {
                 opacity: 0.5;
@@ -84,9 +80,9 @@
         .rating-heart-container {
 
           .rating-bar {
-            width: 80%;
             float: left;
             margin-top: 0px;
+            width: 80%;
 
             .rating {
               color: black;
@@ -101,8 +97,8 @@
            }
 
           .heart-img-container {
-            width: 20%;
             float: right;
+            width: 20%;
 
             .heart-img {
               font-size: 20px;
@@ -141,16 +137,16 @@
       .body-modal {
 
         .title {
-          margin: 0;
-          line-height: 1.42857143;
           color: brown;
+          line-height: 1.42857143;
+          margin: 0;
         }
 
         .modal-image-container {
 
           .modal-book-image {
-            width: 100%;
             height: 217px;
+            width: 100%;
           }
         }
 

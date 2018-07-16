@@ -39,7 +39,7 @@ function addBlock1(c_date, p_date) {
     } else {
         dateBlock(c_date);
     }
-    parentEle = document.getElementById("test");
+    parentEle = document.getElementById("calendar");
     parentEle.append(year_heading);
     parentEle.append(month_heading);
     parentEle.append(week_days_list);

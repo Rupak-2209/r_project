@@ -97,7 +97,7 @@ function createCalendar() {
     for(var j = 0; j < (6 - countPreDate); j++) {
         counter++;
         appendDate(nextDate, -1);
-        nextDate++ ;
+        nextDate++;
       }
 }
 
@@ -109,6 +109,8 @@ function appendDate(dateCount, dateCheck) {
       } else {
             creatingDate(dateCount);
             // setting title to the birth date of person
+            // TODO: use join to create title of names
+            //TODO: reduce this complexicity
             for(var i = 0; i < employees.length; i++) {
                 var person = new Date(employees[i].birth);
                 if(person.getDate() === dateCount && person.getMonth() === currentDate.getMonth()) {
@@ -121,7 +123,7 @@ function appendDate(dateCount, dateCheck) {
             }
             birthdayPerson = '';
         }
-    parentEle = document.getElementById("test");
+    parentEle = document.getElementById("calendar");
     parentEle.append(yearHeading);
     parentEle.append(monthHeading);
     parentEle.append(weekDaysList);
