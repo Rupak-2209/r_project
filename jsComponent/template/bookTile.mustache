@@ -1,0 +1,17 @@
+<div class="col-md-3 col-sm-6 book-tile">
+  <div class="book">
+    <div class="image-container"><img  class="image" src="{{Image}}" title="ISBN: {{isbn}}"></div>
+    <div class="title"><span>{{Title}}</span></div>
+    <div class="book-desc">{{Description}}</div><hr class="separator"/>
+    <div class="clearfix rating-heart-container">
+      <div class="rating-bar">
+        <span class="fa fa-star rating" onclick="showRating(event)"></span>
+        <span class="fa fa-star rating" onclick="showRating(event)"></span>
+        <span class="fa fa-star rating" onclick="showRating(event)"></span>
+        <span class="fa fa-star rating" onclick="showRating(event)"></span>
+        <span class="fa fa-star rating" onclick="showRating(event)"></span>
+      </div>
+    <div class="heart-img-container"><i class="heart-img fa fa-heart-o" onclick="showHeartSelected(event)"/></div></div>
+    <div class="buy-button"><button class="btn btn-success button" data-toggle="modal" data-target="#book-modal" onclick="showBookDetail({{ID}})">DETAIL</button></div>
+  </div>
+</div>
