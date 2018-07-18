@@ -4,7 +4,8 @@ var bookSelected = null;
 var indexOfRow = 0;
 var countOfBook = 1;
 
-$(document).ready(function() {
+function showBooks() {
+  this.show = function() {
     makeApiCall("php/page/1");
     addEventOnNavBar();
     $(window).scroll(function() {
@@ -20,7 +21,8 @@ $(document).ready(function() {
             makeApiCall(url);
         }
     });
-});
+  }
+}
 
 function createBookTile(resp) {
     var starRating = "";
