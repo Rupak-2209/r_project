@@ -1,0 +1,49 @@
+.form-container {
+  background-color: #BBDEFB; }
+  .form-container .heading {
+    margin: 0 auto;
+    padding: 10px 0px;
+    text-align: center;
+    width: 64%; }
+  .form-container .form {
+    background-color: #ffffff;
+    margin: 5px auto;
+    width: 64%; }
+    .form-container .form .form-fieldset {
+      border: 15px solid #dbedff;
+      margin-bottom: 10px;
+      position: relative; }
+      .form-container .form .form-fieldset .form-legand {
+        margin-top: -18px;
+        margin-left: 10px;
+        position: absolute;
+        color: #ff8e4f; }
+      .form-container .form .form-fieldset .name-error, .form-container .form .form-fieldset .age-error, .form-container .form .form-fieldset .birthday-error, .form-container .form .form-fieldset .email-error, .form-container .form .form-fieldset .mobile-error {
+        color: red;
+        text-align: center; }
+      .form-container .form .form-fieldset .group {
+        padding: 0px;
+        margin-top: 10px; }
+        .form-container .form .form-fieldset .group .range-container {
+          margin-top: 10px;
+          padding: 0px; }
+          .form-container .form .form-fieldset .group .range-container .height {
+            background-color: #f5f5f5;
+            color: blue; }
+        .form-container .form .form-fieldset .group .input {
+          margin-top: 10px; }
+          .form-container .form .form-fieldset .group .input .sub-group {
+            padding: 0px;
+            margin: 0px; }
+          .form-container .form .form-fieldset .group .input .image-input {
+            margin-top: 9px; }
+          .form-container .form .form-fieldset .group .input .error {
+            color: red; }
+        .form-container .form .form-fieldset .group .labels .required {
+          font-size: 20px;
+          color: red; }
+    .form-container .form .button {
+      display: block;
+      margin: 0 auto; }
+
+/*# sourceMappingURL=form.css.map */

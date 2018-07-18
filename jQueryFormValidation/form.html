@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="form.css"/>
+    <script src="form.js"></script>
+  </head>
+  <body class=" container form-container">
+    <div class="jumbotron heading">
+      <h3>
+        Registration Form
+      </h3>
+    </div>
+    <form class="form-horizontal form" name="registration" autocomplete="off">
+      <fieldset class="form-fieldset">
+        <legand class="form-legand">
+          Your Face
+        </legand>
+        <div class="form-group group">
+          <label class="control-label col-sm-4 labels" for="image">
+            Your Image
+            <span class="required">*</span>:
+          </label>
+          <div class="col-sm-6 input">
+            <input type="file" class="form-control-file image-input"  aria-describedby="fileHelp">
+          </div>
+        </div>
+        <div class="form-group group">
+          <label class="control-label col-sm-4" for="preview">
+            Image preview:
+          </label>
+          <div class="col-sm-6">
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-fieldset">
+        <legand class="form-legand">Your General Datails</legand>
+        <div class="form-group group">
+          <label class="control-label col-sm-4 labels" for="name">Name<span class="required">*</span>:</label>
+          <div class="col-sm-6 input">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name"/>
+          </div>
+        </div>
+        <div class="form-group group">
+          <label class="control-label col-sm-4 labels" for="gender">Gender<span class="required">*</span>:</label>
+          <div class="col-sm-6 input">
+            <input type="radio" name="gender" value="male" checked> Male
+            <input type="radio" name="gender" value="female" checked> Female
+          </div>
+        </div>
+        <div class="form-group group">
+          <label class="control-label col-sm-4 labels" for="age">Age<span class="required">*</span>:</label>
+          <div class="col-sm-4 input">
+            <input type="hidden" class="form-control" name="age" id="age" value="12"/>
+          </div>
+        </div>
+        <div class="form-group group">
+          <label class="control-label col-sm-4 labels" for="birthdate">Date Of Birth<span class="required">*</span>:</label>
+          <div class="col-sm-4 input">
+            <input type="date" class="form-control" name="date" id="birthdate">
+          </div>
+        </div>
+        <div class="form-group group">
+          <label class="control-label col-sm-4 labels" for="color">Favorate Color<span class="required">*</span>:</label>
+          <div class="col-sm-2 input">
+            <input type="color" class="form-control" name="color">
+          </div>
+        </div>
+        <div class="form-group group">
+          <label class="control-label col-sm-4 labels" for="select-country">Which Country<span class="required">*</span>:</label>
+          <div class="col-sm-3 input">
+            <select class="form-control" id="select-country" name="country">
+              <option value="other">select country</option>
+              <option value="india">India</option>
+              <option value="australia">Australia</option>
+              <option value="bhutan">Bhutan</option>
+              <option value="pakistan">Pakistan</option>
+              <option value="china">China</option>
+              <option value="nepal">Nepal</option>
+              <option value="japan">Japan</option>
+              <option value="afganistan">Afganistan</option>
+              <option value="france">France</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-fieldset">
+        <legand class="form-legand">Your Indicator</legand>
+        <div class="form-group group">
+          <label class="control-label col-sm-4 labels" for="height">Height<span class="required">*</span>:</label>
+          <div class="col-sm-6 input">
+            <div class="row range-container">
+              <div class="col-sm-2 height"><span class="height-label">Short</span></div>
+              <div class="col-sm-4"><input type="range" class="form-control-range" id="formControlRange"></div>
+              <div class="col-sm-2 height"><span class="height-label">Tall</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group group">
+          <label class="control-label col-sm-4 labels" for="salary">Salary<span class="required">*</span>:</label>
+          <div class="col-sm-6 input">
+            <div class="row range-container">
+              <div class="col-sm-2 height"><span class="height-label">Poor</lebel></div>
+              <div class="col-sm-4"><input type="range" class="form-control-range" id="formControlRange"></div>
+              <div class="col-sm-2 height"><span class="height-label">Rich</span></div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-fieldset">
+        <legand class="form-legand">Your Contact Information</legand>
+        <div class="form-group group">
+          <label class="control-label col-sm-4 labels" for="email">Email<span class="required">*</span>:</label>
+          <div class="col-sm-6 input">
+            <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+          </div>
+        </div>
+
+        <div class="form-group group">
+          <label class="control-label col-sm-4 labels" for="mobile">Mobile<span class="required">*</span>:</label>
+          <div class="col-sm-6 input">
+            <input type="tel" name="mobileNo" class="form-control" id="mobile" placeholder="Mobile number">
+          </div>
+        </div>
+
+        <div class="form-group group">
+          <label class="control-label col-sm-4 labels" for="address">Address<span class="required">*</span>:</label>
+          <div class="col-sm-6 input">
+            <textarea class="form-control" id="formControlTextarea" rows="3" name="address" placeholder=" Parmanent address"></textarea>
+          </div>
+        </div>
+        <div class="form-group group">
+          <label class="control-label col-sm-4 labels" for="Contact">Method To Contact You<span class="required">*</span>:</label>
+          <div class="col-sm-6 input">
+              <input type="checkbox" name="methodToContact" value="email" id="contactemail"/>
+              <label class="control-label" for="contactemail">Email</label>
+              <input type="checkbox" name="methodToContact" value="whatsapp" id="contactwhatsapp"/>
+              <label class="control-label" for="contactwhatsapp">Whatsapp</label>
+              <input type="checkbox" name="methodToContact" value="chat" id="contactchat"/>
+              <label class="control-label" for="contactchat">In-app-chat</label>
+          </div>
+        </div>
+      </fieldset>
+      <input type="submit" value="submit" class="btn btn-success button">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+.form-container {
+  background-color: #BBDEFB;
+  .heading {
+    margin: 0 auto;
+    padding: 10px 0px;
+    text-align: center;
+    width: 64%;
+  }
+
+  .form {
+    background-color: #ffffff;
+    margin: 5px auto;
+    width: 64%;
+
+    .form-fieldset {
+      border: 15px solid #dbedff;
+      margin-bottom: 10px;
+      position: relative;
+
+      .form-legand {
+        margin-top: -18px;
+        margin-left: 10px;
+        position: absolute;
+        color: #ff8e4f;
+      }
+
+      .name-error, .age-error, .birthday-error, .email-error, .mobile-error {
+        color: red;
+        text-align: center;
+      }
+
+      .group {
+        padding: 0px;
+        margin-top: 10px;
+
+        .range-container {
+          margin-top: 10px;
+          padding: 0px;
+
+          .height {
+            background-color: #f5f5f5;
+            color: blue;
+          }
+        }
+
+        .input {
+          margin-top: 10px;
+
+          .sub-group {
+            padding: 0px;
+            margin: 0px;
+          }
+
+          .image-input {
+            margin-top: 9px;
+          }
+
+          .error {
+            color: red;
+          }
+        }
+
+        .labels {
+          .required {
+            font-size: 20px;
+            color: red;
+          }
+        }
+      }
+    }
+
+    .button {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
